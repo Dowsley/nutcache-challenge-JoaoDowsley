@@ -13,13 +13,12 @@ namespace PeopleApi.Migrations
                 {
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     BirthDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Gender = table.Column<int>(type: "INTEGER", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: true),
-                    Birth = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CPF = table.Column<string>(type: "TEXT", nullable: true),
-                    StartDate = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    CPF = table.Column<string>(type: "TEXT", nullable: false),
+                    StartDate = table.Column<string>(type: "TEXT", nullable: false),
                     Team = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

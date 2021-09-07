@@ -53,7 +53,7 @@ namespace PeopleApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Gender,Email,Birth,CPF,StartDate,Team")] Person person)
+        public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace PeopleApi.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,BirthDate,Gender,Email,Birth,CPF,StartDate,Team")] Person person)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
         {
             if (id != person.Id)
             {

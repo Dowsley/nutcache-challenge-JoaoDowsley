@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PeopleApi.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    [Migration("20210907172606_InitialCreate")]
+    [Migration("20210907184328_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,25 +23,26 @@ namespace PeopleApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Birth")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CPF")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Gender")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("StartDate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Team")
