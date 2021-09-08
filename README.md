@@ -20,7 +20,7 @@ nullable)
 - [x] Define and implement an API to delete a previously registered employee; 
 - [x] Define and implement an API to edit a previously registered employee; 
 - [x] Main page with registered employees grid with edit and disable options for each row 
-- [ ] The grid must display Name, Email, Start Date and Team for each employee; 
+- [x] The grid must display Name, Email, Start Date and Team for each employee; 
 - [ ] Popup to register an employee. 
 - [ ] Popup to edit a registered employee. 
 - [ ] Popup to confirm disable employee action.
