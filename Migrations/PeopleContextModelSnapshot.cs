@@ -43,7 +43,7 @@ namespace PeopleApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Team")
+                    b.Property<int?>("Team")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

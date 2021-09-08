@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace PeopleApi.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    [Migration("20210907184328_InitialCreate")]
+    [Migration("20210908173620_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace PeopleApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Team")
+                    b.Property<int?>("Team")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

@@ -19,7 +19,7 @@ namespace PeopleApi.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     CPF = table.Column<string>(type: "TEXT", nullable: false),
                     StartDate = table.Column<string>(type: "TEXT", nullable: false),
-                    Team = table.Column<int>(type: "INTEGER", nullable: false)
+                    Team = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

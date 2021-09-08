@@ -49,13 +49,17 @@ namespace PeopleApi.Models
         
         [Required]
         [Display(Name = "CPF")]
+        [RegularExpression(@"([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})", 
+        ErrorMessage = "Please enter a valid CPF!")]
         public string CPF { get; set; }
         
         [Required]
-        // TODO: Regular Expression Validator
-        [Display(Name = "Start Date (MM/YYYY)")]
+        [RegularExpression(@"^(1[0-2]|0[1-9])\/(20\d{2}|19\d{2})$", 
+        ErrorMessage = "Please enter a date in MM/YYYY format!")]
+        [Display(Name = "Start Date")]
         public string StartDate { get; set; }
         
-        public TeamTypeEnum Team { get; set; }
+        [Display(Name = "Team (Optional)")]
+        public Nullable<TeamTypeEnum> Team { get; set; }
     }
 }
