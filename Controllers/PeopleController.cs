@@ -24,6 +24,22 @@ namespace PeopleApi.Controllers
             return View(await _context.Person.ToListAsync());
         }
 
+        // POST: People/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(person);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(await _context.Person.ToListAsync());
+        }
+
         // GET: People/Details/5
         public async Task<IActionResult> Details(long? id)
         {
@@ -39,28 +55,6 @@ namespace PeopleApi.Controllers
                 return NotFound();
             }
 
-            return View(person);
-        }
-
-        // GET: People/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: People/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(person);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
             return View(person);
         }
 
