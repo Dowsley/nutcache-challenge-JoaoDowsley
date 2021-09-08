@@ -1,4 +1,4 @@
-@model IEnumerable<PeopleApi.Models.Person>
+@model IEnumerable<PeopleApi.Models.Person>;
 
 @{
     Person Person = null;
@@ -7,9 +7,10 @@
 <h1>Registered Employees</h1>
 
 <p>
-    <button id='open' data-toggle="modal" data-target="#showmodal">New Employee</button>
+    <button id='open' data-toggle="modal" data-target="#showmodal-create">New Employee</button>
 </p>
 <table class="table">
+    <asp:HiddenField ID="selected_person" value="" />
     <thead>
         <tr>
             <th>
@@ -43,24 +44,42 @@
                 @Html.DisplayFor(modelItem => item.Team)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a href="" id='open' data-toggle="modal" data-target="#showmodal-edit-@item.Id">Edit</a> |
+                <a href="" id='open' data-toggle="modal" data-target="#showmodal-details-@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
+        <!-- Modal for Edit -->
+        <div id="showmodal-edit-@item.Id" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    @Html.Partial("Edit", @item)
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Details -->
+        <div id="showmodal-details-@item.Id" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    @Html.Partial("Details", @item)
+                </div>
+            </div>
+        </div>
     }
     </tbody>
 </table>
 
-<div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+<!-- Modal for Creation -->
+<div id="showmodal-create" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
             @Html.Partial("Create", @Person)
 
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>

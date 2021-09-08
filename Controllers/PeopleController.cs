@@ -37,41 +37,7 @@ namespace PeopleApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(await _context.Person.ToListAsync());
-        }
-
-        // GET: People/Details/5
-        public async Task<IActionResult> Details(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-
-            return View(person);
-        }
-
-        // GET: People/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var person = await _context.Person.FindAsync(id);
-            if (person == null)
-            {
-                return NotFound();
-            }
-            return View(person);
+            return View("Index", await _context.Person.ToListAsync());
         }
 
         // POST: People/Edit/5
@@ -81,6 +47,7 @@ namespace PeopleApi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
         {
+            
             if (id != person.Id)
             {
                 return NotFound();
@@ -106,6 +73,24 @@ namespace PeopleApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            return View(person);
+        }
+
+        // GET: People/Details/5
+        public async Task<IActionResult> Details(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var person = await _context.Person
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (person == null)
+            {
+                return NotFound();
+            }
+
             return View(person);
         }
 
