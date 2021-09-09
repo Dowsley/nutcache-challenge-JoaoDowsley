@@ -14,8 +14,7 @@
   - Start Date (MM/YYYY) * 
     - String validated by regex
   - Team 
-    - DROPDOWN WITH ENUMS: Mobile, Frontend, Backend. (nullable) 
-nullable) 
+    - DROPDOWN WITH ENUMS: Mobile, Frontend, Backend. (nullable)
 - [x] Define and implement a listing API for all employees already registered; 
 - [x] Define and implement an API to delete a previously registered employee; 
 - [x] Define and implement an API to edit a previously registered employee; 
