@@ -35,3 +35,6 @@ application must be in the README.md of the root folder of your repository.
 - [x] Implement unit tests for all the features 
 - [ ] Appropriate use of SOLID, ACID and design patterns (use when necessary), according to 
 the platform of your choice
+
+## EXTRA
+- Creation of a DETAILS View. i.e. a GET endpoint for a single Person/Employee.

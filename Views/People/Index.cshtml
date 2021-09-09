@@ -4,6 +4,14 @@
     Person Person = null;
 }
 
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+    a.btn {border-radius: .25rem; border: 1px solid transparent; padding: .5rem 1rem; color: #fff; }
+    a.btn:hover { border-radius: .25rem; }
+</style>
+
 <h1>Registered Employees</h1>
 
 <p>
@@ -44,18 +52,18 @@
                 @Html.DisplayFor(modelItem => item.Team)
             </td>
             <td>
-                <a href="" id='open' data-toggle="modal" data-target="#showmodal-edit-@item.Id">Edit</a> |
-                <a href="" id='open' data-toggle="modal" data-target="#showmodal-details-@item.Id">Details</a> |
+                <a class="btn btn-primary" href="" id='open' data-toggle="modal" data-target="#showmodal-edit-@item.Id">Edit</a>
+                <a class="btn btn-primary" href="" id='open' data-toggle="modal" data-target="#showmodal-details-@item.Id">Details</a>
                 <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display: inline;">
                     <input type="hidden" asp-for="@item.Id" />
-                    <input type="submit" onclick="return confirm('Are you sure?')" value="Delete" class="btn btn-danger" /> |
+                    <input class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')" value="Delete"/>
                 </form>
             </td>
         </tr>
         <!-- Modal for Edit -->
         <div id="showmodal-edit-@item.Id" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content" style="padding: 15px;">
                     @Html.Partial("Edit", @item)
                 </div>
             </div>
@@ -63,7 +71,7 @@
         <!-- Modal for Details -->
         <div id="showmodal-details-@item.Id" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content" style="padding: 15px;">
                     @Html.Partial("Details", @item)
                 </div>
             </div>
@@ -75,7 +83,7 @@
 <!-- Modal for Creation -->
 <div id="showmodal-create" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="padding: 15px;">
 
             @Html.Partial("Create", @Person)
 
