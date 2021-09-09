@@ -4,7 +4,7 @@
 [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-5.0) is a powerful framework by itself, but it was my choice because I deemed it as especially useful to accomplish the challenge requirements of having both Front-end AND Back-end, due to its **MVC architecture pattern**.
 ### Overral Architecture
 The PeopleApi follows the MVC Architecture Pattern, so, of course, it was implemented separated in those three major parts. I assume the reader is already familiar with the concepts, but in case they're not, [read here](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). Now, a summary of each part:
-##### Model
+#### Model
 The Model class `Models/Person.cs` is a data structure that represents the concept of a *Person* (or *Employee* if you prefer, but I'll call it Person along the rest of the explanation), which is what the whole of PeopleApi is built around. It contains the following fields (along with its validation and display rules):
 - Id (long)
     - Non-nullable
@@ -35,7 +35,7 @@ The Model class `Models/Person.cs` is a data structure that represents the conce
     - ENUM OPTIONS: Mobile, Frontend, Backend
     - NULLABLE
 
-##### Controller
+#### Controller
 The `Controllers/PeopleController.cs` class contains several endpoints that handle user interaction, and through a instance of the `Data/PeopleContext.cs` class, can make use of the the Model `Person` regardless of how it is stored. In this case, I'm using SQLite, but it can be changed rather easily passing the right parameters to `PeopleContext`. 
 
 The PeopleApi is a Full-Stack application, so it's the responsability of each GET Endpoint to render an HTML View with the data properly injected in it, instead of just returning JSON data. Here are the endpoints along with what requirements they cover and views they load:
@@ -63,7 +63,7 @@ The PeopleApi is a Full-Stack application, so it's the responsability of each GE
 
 **There are Unit Tests for each endpoint. You can check how to run them in the Usage section.**
 
-##### View
+#### View
 The main View is "Index", which is also the root of the application. It contains a "Add New Employee" button that opens a pop-up with a Partial View Form that, once filled, will fetch POST: People/Create and update the page.
 
 When there are Employees Registered, they will be listed in the Table Grid with the following information: `Name, Email, Start Date and Team`; To the side of the Grid, for each Employee, there will be three buttons for each of the other three Endpoints:
