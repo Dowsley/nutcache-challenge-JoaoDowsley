@@ -54,7 +54,7 @@ namespace PeopleApi
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=People}/{action=Index}/{id?}");
             });
         }
     }
