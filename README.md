@@ -33,6 +33,6 @@ name convention: nutcache-challenge-yourFirstAndLastNameWithoutSpaces
 - [ ] A document detailing your technical solution and the instructions to run the 
 application must be in the README.md of the root folder of your repository. 
 - [ ] The Web front-end using Angular, Vue, React or any other framework 
-- [ ] Implement unit tests for all the features 
+- [x] Implement unit tests for all the features 
 - [ ] Appropriate use of SOLID, ACID and design patterns (use when necessary), according to 
 the platform of your choice

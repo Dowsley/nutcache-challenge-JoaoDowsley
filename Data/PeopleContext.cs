@@ -12,5 +12,5 @@ using PeopleApi.Models;
         {
         }
 
-        public DbSet<PeopleApi.Models.Person> Person { get; set; }
+        public virtual DbSet<PeopleApi.Models.Person> Person { get; set; }
     }

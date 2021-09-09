@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PeopleApi.Models;
+using System.Diagnostics;
 
 namespace PeopleApi.Controllers
 {
@@ -25,8 +26,6 @@ namespace PeopleApi.Controllers
         }
 
         // POST: People/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
@@ -41,8 +40,6 @@ namespace PeopleApi.Controllers
         }
 
         // POST: People/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("Id,Name,BirthDate,Gender,Email,CPF,StartDate,Team")] Person person)
